@@ -76,4 +76,10 @@ def run_ai(csv_path):
         json.dump(output, f, indent=2)
 
 if __name__ == "__main__":
-    run_ai(sys.argv[1])
+    import os
+
+    # If dataset exists, run AI automatically
+    if os.path.exists("students.csv"):
+        run_ai("students.csv")
+    else:
+        print("No dataset found — waiting for upload")
